@@ -1,5 +1,3 @@
-'use client'
-
 import styles from './styles/benefits.module.scss'
 import Image from "next/image";
 import emailIcon from '@/public/assets/email-icon.svg'

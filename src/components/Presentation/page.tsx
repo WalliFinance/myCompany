@@ -1,9 +1,7 @@
-'use client'
-
 import Link from "next/link";
 import styles from './styles/presentation.module.scss'
 
-export default function Presentation(){
+const Presentation = () =>{
     return(
         <main className={styles.main}>
             <article>
@@ -15,3 +13,5 @@ export default function Presentation(){
         </main>
     )
 }
+
+export default Presentation
