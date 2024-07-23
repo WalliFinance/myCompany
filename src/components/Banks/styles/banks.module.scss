@@ -1,0 +1,43 @@
+$p1:#003049;
+$p2:#005480;
+$p3:#0081C3;
+$p4:#00A3F6;
+$p5:#2FB9FF;
+$p6:#7DD3FF;
+$s1:#212529;
+$s2:#343A40;
+$s3:#495057;
+$s4:#6C757D;
+$s5:#ADB5BD;
+$s6:#CED4DA;
+$s7:#1C2024;
+$s8:#0E1114;
+$s9:#0B1015;
+$s10:#060A0D;
+$s11:#040709;
+$s12:#000000;
+$warning:#D90429;
+$sucess:#A7C957;
+
+.container{
+    width: 100%;
+    padding: 3.75rem;
+    background-color: $s7;
+
+    
+    div{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    gap: 3.75rem;
+        
+        article{
+            background-color: $s6;
+            padding: 1.25rem;
+            height: 37.5rem;
+            border-radius: .75rem;
+            display: flex;
+            place-items: center;
+        }
+    }
+}
