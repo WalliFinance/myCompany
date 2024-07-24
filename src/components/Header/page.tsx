@@ -20,6 +20,7 @@ export default function Header(){
         refUl.current.style.display = 'flex'
         refButton.current.style.display = 'block'
       }else{
+        refUl.current.style.display = 'none'
         refButton.current.style.display = 'none'
       }
     }
@@ -113,7 +114,7 @@ export default function Header(){
                 <span className={styles.divisor}></span>
                 </div>
             </ul>
-            <button><Link href={'/simular'}>Simular</Link></button>
+            <button ref={refButton}><Link href={'/simular'}>Simular</Link></button>
           </nav>
         </header>
     )
