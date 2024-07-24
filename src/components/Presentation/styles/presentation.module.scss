@@ -18,6 +18,7 @@ $s11:#040709;
 $s12:#000000;
 $warning:#D90429;
 $sucess:#A7C957;
+$white:#FFFFFF;
 
 
 @font-face {
@@ -111,6 +112,7 @@ $sucess:#A7C957;
     height: max-content;
     background: unset;
     background-color: $s7;
+    color: $white;
     
     article{
       h1{
