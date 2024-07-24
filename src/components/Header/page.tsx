@@ -11,14 +11,16 @@ export default function Header(){
   const secondLink = useRef<HTMLAnchorElement>(null)
   const thirdLink = useRef<HTMLAnchorElement>(null)
   const refUl = useRef<HTMLUListElement>(null)
+  const refButton = useRef<HTMLButtonElement>(null)
   const [currentPath, setCurrentPath] = useState<string>('')
 
   function expandMenu(){
-    if(refUl.current){
+    if(refUl.current && refButton.current){
       if(refUl.current.style.display === 'none'){
         refUl.current.style.display = 'flex'
+        refButton.current.style.display = 'block'
       }else{
-        refUl.current.style.display = 'none'
+        refButton.current.style.display = 'none'
       }
     }
   }
