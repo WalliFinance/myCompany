@@ -8,9 +8,10 @@ import fbLogo from '@/public/assets/fb-icon.svg'
 import ttLogo from '@/public/assets/tt-icon.svg'
 import instaLogo from '@/public/assets/ig-icon.svg'
 import Link from 'next/link';
-
+import useWindowSize from '@/src/utils/useWindowSize';
 
 export default function Benefits(){
+    const size = useWindowSize()
     return(
         <main className={styles.main}>
             <section>
@@ -65,42 +66,79 @@ export default function Benefits(){
         <div className={styles.secondContainer}>
             <div>
                 <Link href={'/'}>
-                <Image
-                width={40}
-                height={40}
-                alt="Icone do whatsapp"
-                src={wppLogo}
-                />
+                {size.width<1000?(
+                    <Image
+                    width={30}
+                    height={30}
+                    alt="Icone do whatsapp"
+                    src={wppLogo}
+                    />
+                ):(
+                    <Image
+                    width={40}
+                    height={40}
+                    alt="Icone do whatsapp"
+                    src={wppLogo}
+                    />
+                )}
+                
                 </Link>
             </div>
             <div>
                 <Link href={'/'}>
-                <Image
-                width={40}
-                height={40}
-                alt="Icone do facebook"
-                src={fbLogo}
-                />
+                    {size.width<1000?(
+                         <Image
+                         width={30}
+                         height={30}
+                         alt="Icone do facebook"
+                         src={fbLogo}
+                         />
+                    ):(
+                        <Image
+                        width={40}
+                        height={40}
+                        alt="Icone do facebook"
+                        src={fbLogo}
+                        />
+                    )}
                 </Link>
             </div>
             <div>
             <Link href={'/'}>
-                <Image
-                width={40}
-                height={40}
-                alt="Icone do twitter"
-                src={ttLogo}
-                />
+                {size.width<1000?(
+                    <Image
+                    width={30}
+                    height={30}
+                    alt="Icone do twitter"
+                    src={ttLogo}
+                    />
+                ):(
+                    <Image
+                    width={40}
+                    height={40}
+                    alt="Icone do twitter"
+                    src={ttLogo}
+                    />
+                )}
                 </Link>
             </div>
             <div>
             <Link href={'/'}>
-                <Image
-                width={40}
-                height={40}
-                alt="Icone do instagram"
-                src={instaLogo}
-                />
+                {size.width<1000?(
+                    <Image
+                    width={30}
+                    height={30}
+                    alt="Icone do instagram"
+                    src={instaLogo}
+                    />
+                ):(
+                    <Image
+                    width={40}
+                    height={40}
+                    alt="Icone do instagram"
+                    src={instaLogo}
+                    />
+                )}
                 </Link>
             </div>
         </div>

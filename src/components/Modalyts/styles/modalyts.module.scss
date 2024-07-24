@@ -124,3 +124,56 @@ padding: 1.25rem 0rem;
     }
 }
 }
+
+@media(max-width:640px){
+ .main{
+  margin-top: 54.0rem;
+  section{
+    img{
+      margin-top: -90px;
+    }
+    h1{
+      font-size: 2rem;
+    }
+
+    p{
+      width:21.875rem;
+      font-size: 1.1rem;
+      margin-top: -90px;
+    }
+
+    .benefits{
+      flex-direction: column;
+      .benefitContainer{
+        width: max-content;
+        h2{
+          font-size: 1.5rem;
+        }
+
+        .benefitList{
+          width: 23.125rem;
+          li{
+            width: 21.875rem;
+          }
+        }
+      }
+
+      .againstContainer{
+        width: max-content;
+          h2{
+            font-size: 1.5rem;
+          }
+    
+          .againstList{
+          width: 23.125rem;
+    
+          li{
+            width: 21.875rem;
+          }
+          }
+        }
+    }
+ 
+  }
+ }
+}

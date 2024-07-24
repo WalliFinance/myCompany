@@ -2,18 +2,30 @@ import Image from "next/image";
 import creditImg from '@/public/images/credit.svg'
 import financementImg from '@/public/images/financement.svg'
 import styles from './styles/modalyts.module.scss'
+import useWindowSize from "@/src/utils/useWindowSize";
 
 export default function Modalyts(){
+    const size = useWindowSize()
     return(
        <main className={styles.main}>
         <section>
         <h1>Financiamento imobiliario</h1>
-        <Image
-        width={1400}
-        height={700}
-        src={financementImg}
-        alt="Imagem que ilustra o financiamento imobiliario"
-        />
+        {size.width<1000?(
+              <Image
+              width={450}
+              height={400}
+              src={financementImg}
+              alt="Imagem que ilustra o financiamento imobiliario"
+              />
+        ):(
+            <Image
+            width={1400}
+            height={700}
+            src={financementImg}
+            alt="Imagem que ilustra o financiamento imobiliario"
+            />
+        )}
+      
         <p>Financiamento imobiliário é uma modalidade de crédito destinada à aquisição de imóveis, permitindo que os compradores adquiram uma propriedade sem a necessidade de pagar o valor total à vista. O valor financiado é pago em parcelas mensais ao longo de um período que pode variar de 20 a 30 anos, ou até mais, dependendo das condições do contrato.</p>
 
         <div className={styles.benefits}>
@@ -47,12 +59,22 @@ export default function Modalyts(){
 
         <section>
         <h1>Crédito com garantia de imovel</h1>
-        <Image
-        width={1400}
-        height={700}
-        src={creditImg}
-        alt="Imagem que representa o crédito com garantia de imovel"
-        />
+        {size.width<1000?(
+             <Image
+             width={450}
+             height={400}
+             src={creditImg}
+             alt="Imagem que representa o crédito com garantia de imovel"
+             />
+        ):(
+            <Image
+            width={1400}
+            height={700}
+            src={creditImg}
+            alt="Imagem que representa o crédito com garantia de imovel"
+            />
+        )}
+       
         <p>O crédito com garantia de imóvel, também conhecido como home equity, é um tipo de empréstimo onde o tomador usa um imóvel quitado ou financiado como garantia para obter crédito. Esse tipo de financiamento permite acesso a valores mais altos e prazos mais longos, com taxas de juros geralmente mais baixas comparadas a outras modalidades de crédito pessoal. Os recursos obtidos podem ser utilizados para diversas finalidades, como reforma de imóveis, investimentos, educação, quitação de dívidas e outros projetos pessoais ou empresariais. Caso o tomador não consiga cumprir com as obrigações de pagamento, o imóvel pode ser tomado pela instituição financeira para quitar a dívida.</p>
 
         <div className={styles.benefits}>

@@ -105,3 +105,15 @@ $sucess:#A7C957;
       }
    }
 }
+
+@media(max-width:640px){
+  .main{
+    height: 100%;
+    
+    article{
+      h1{
+        font-size:2rem;
+      }
+    }
+  }
+}
