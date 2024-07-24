@@ -6,8 +6,10 @@ import joaoImage from '@/public/images/joao.svg'
 import mariaImage from '@/public/images/maria.svg'
 import pedroImage from '@/public/images/pedro.svg'
 import { useEffect } from 'react'
+import useWindowSize from '@/src/utils/useWindowSize'
 
 export default function Sobre(){
+    const size = useWindowSize()
     useEffect(()=>{
         document.title = 'Sobre-nos'
     },[])
@@ -19,12 +21,21 @@ export default function Sobre(){
                 <p>Em 2021, em uma pequena sala em São Paulo, um grupo de amigos de infância, apaixonados por tecnologia e finanças, se reuniram para discutir um problema que enfrentavam em comum: a dificuldade de acessar e entender os processos de financiamento imobiliário. Sabiam que muitas pessoas compartilhavam dessa mesma frustração, o que os levou a imaginar uma solução que pudesse revolucionar o setor.
                 Desses encontros nasceu a [Nome da Empresa]. Combinando suas habilidades em tecnologia, análise de dados e finanças, eles criaram uma plataforma inovadora que simplificava todo o processo de financiamento imobiliário, tornando-o mais transparente e acessível para todos. Desde o início, a missão da empresa foi clara: transformar o mercado imobiliário, proporcionando às pessoas as ferramentas e informações necessárias para tomar decisões financeiras mais informadas e seguras.
                 Em poucos meses, a plataforma ganhou tração, atraindo a atenção de investidores e parceiros estratégicos. A equipe expandiu, e a pequena sala em São Paulo deu lugar a um moderno escritório, cheio de energia e inovação. Hoje, a [Nome da Empresa] continua a crescer, impactando positivamente a vida de milhares de pessoas que buscam realizar o sonho da casa própria.</p>
-                <Image
-                width={800}
-                height={600}
-                alt='Foto da nossa empresa'
-                src={companyImage}                
-                />
+                {size.width<1000?(
+                    <Image
+                    width={350}
+                    height={600}
+                    alt='Foto da nossa empresa'
+                    src={companyImage}                
+                    />
+                ):(
+                    <Image
+                    width={800}
+                    height={600}
+                    alt='Foto da nossa empresa'
+                    src={companyImage}                
+                    />
+                )}
             </article>
 
             <article className={styles.team}>
@@ -48,12 +59,21 @@ export default function Sobre(){
             <div className={styles.teamContainer}>
             <div className={styles.employee}>
                 <div className={styles.image}>
-                <Image
-                width={500}
-                height={600}
-                alt='Foto do nosso ceo João'
-                src={joaoImage}
-                />
+                {size.width<1000?(
+                    <Image
+                    width={350}
+                    height={400}
+                    alt='Foto do nosso ceo João'
+                    src={joaoImage}
+                    />
+                ):(
+                    <Image
+                    width={500}
+                    height={600}
+                    alt='Foto do nosso ceo João'
+                    src={joaoImage}
+                    />
+                )}
                 </div>
                 <div className={styles.employeeInfos}>
                 <h3>João Silva - CEO</h3>
@@ -63,12 +83,21 @@ export default function Sobre(){
             
             <div className={styles.employee2}>
                 <div className={styles.image}>
-                <Image
-                width={500}
-                height={700}
-                alt='Foto da nossa cto Maria'
-                src={mariaImage}
-                />
+                {size.width<1000?(
+                    <Image
+                    width={350}
+                    height={500}
+                    alt='Foto da nossa cto Maria'
+                    src={mariaImage}
+                    />
+                ):(
+                    <Image
+                    width={500}
+                    height={700}
+                    alt='Foto da nossa cto Maria'
+                    src={mariaImage}
+                    />
+                )}
                 </div>
                 <div className={styles.employeeInfos}>
                 <h3>Maria Oliveira - CTO</h3>
@@ -78,12 +107,21 @@ export default function Sobre(){
             
             <div className={styles.employee3}>
                 <div className={styles.image}>
-                    <Image
-                    width={500}
-                    height={600}
-                    alt='Foto do nosso cfo Pedro'
-                    src={pedroImage}
-                    />
+                    {size.width<1000?(
+                        <Image
+                        width={350}
+                        height={400}
+                        alt='Foto do nosso cfo Pedro'
+                        src={pedroImage}
+                        />
+                    ):(
+                        <Image
+                        width={500}
+                        height={600}
+                        alt='Foto do nosso cfo Pedro'
+                        src={pedroImage}
+                        />
+                    )}
                 </div>
                 <div className={styles.employeeInfos}>
                 <h3>Pedro Santos - CFO</h3>

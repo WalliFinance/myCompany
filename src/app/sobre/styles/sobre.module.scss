@@ -223,3 +223,83 @@ $sucess:#A7C957;
         }
     }
 }
+
+@media(max-width:640px){
+    .main{
+        padding-bottom: 2rem;
+        h2{
+            font-size: 2rem;
+        }
+        
+        p{
+            font-size: 1.1rem;
+            width: 21.875rem;
+        }
+
+        .team{
+            ul{
+                li{
+                    width: 21.875rem;
+                }
+            }
+        }
+
+        .info{
+            img{
+                margin-top: 0rem;
+                text-align: center;
+                margin-left: 190px;
+            }
+        }
+    
+
+        .employees{
+            .teamContainer{
+                display: flex;
+                flex-direction: column;
+
+                .employee{
+                    margin-top: 10rem;
+                    .image{
+                        img{
+                            margin-top: -6.3rem;
+                        }
+                    }
+                }
+
+                .employee2{
+                    margin-top: 12rem;
+                    .image{
+                        img{
+                            margin-top: -12.5rem;
+                        }
+                    }
+                }
+
+                .employee3{
+                    margin-top: 7rem;
+                    .image{
+                        img{
+                            margin-top: -6.2rem;
+                        }
+                    }
+                }
+                  .employee,
+                  .employee2,
+                  .employee3
+                  {
+                    .employeeInfos{
+                        p{
+                        padding: .4rem 1.25rem;
+                        padding-bottom: .75rem;
+                        font-family: 'Text-L';
+                        color: $s6;
+                        width: 21.875rem;
+                        }
+                 }
+                  }    
+               
+            }
+        }
+    }
+}
