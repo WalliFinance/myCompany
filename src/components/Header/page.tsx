@@ -2,6 +2,8 @@
 import Link from "next/link"
 import styles from './styles/header.module.scss'
 import { useEffect,useRef, useState } from "react"
+import Image from "next/image"
+import menuIcon from '@/public/assets/menu_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.svg'
 
 
 export default function Header(){
@@ -11,7 +13,11 @@ export default function Header(){
   const refUl = useRef<HTMLUListElement>(null)
   const [currentPath, setCurrentPath] = useState<string>('')
 
-  
+  function expandMenu(){
+    if(refUl.current){
+      refUl.current.style.display = 'flex'
+    }
+  }
   const handlePathChange = (newPath:string) =>{
     if(refUl.current){
       const allA = refUl.current.querySelectorAll('a')
@@ -74,6 +80,13 @@ export default function Header(){
 
     return(
         <header className={styles.header}>
+        <Image
+        width={30}
+        height={30}
+        src={menuIcon}
+        alt="Icone de menu"
+        onClick={expandMenu}
+        />
           <nav>
           <h1>LOGO</h1>
             <ul ref={refUl}>

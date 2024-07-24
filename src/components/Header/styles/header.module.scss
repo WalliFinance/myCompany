@@ -50,6 +50,9 @@ display: flex;
 justify-content: center;
 position: fixed;
 z-index: 7000;
+img{
+    display: none;
+}
     nav{
         margin:1.25rem;
         height: 6.25rem;
@@ -114,6 +117,55 @@ z-index: 7000;
                 background-color: $p6;
                 color: $s12;
             }
+        }
+    }
+}
+
+@media(max-width:640px){
+    .header{
+        img{
+            display: block;
+            position: absolute;
+            right: 22%;
+            top: 40%;
+            z-index: 1000000;
+        }
+        nav{
+          width: 21.875rem;
+          position: relative;  
+
+          h1{
+            font-size: 2rem;
+          }
+
+          ul{
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            right: 0%;
+            top: 30%;
+            padding: 2.50rem;
+            background-color: $s7;
+            height: 250px;
+            width: 150px;
+            div{
+                a{
+                    font-size: 1.5rem;
+                }
+
+                span{
+                    &::after{
+                        width: 1.5rem;
+                    }
+                }
+            }
+          }
+
+          button{
+            position: absolute;          
+            right: 3%;
+            top: 200%;
+          }
         }
     }
 }
