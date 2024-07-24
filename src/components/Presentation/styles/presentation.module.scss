@@ -108,8 +108,9 @@ $sucess:#A7C957;
 
 @media(max-width:640px){
   .main{
-    height: 950px;
-    
+    height: max-content;
+    background: unset;
+    background-color: $s7;
     
     article{
       h1{
