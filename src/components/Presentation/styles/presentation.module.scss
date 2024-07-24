@@ -52,27 +52,40 @@ $sucess:#A7C957;
     width: 100%;
     margin-top: 3.75rem;
     padding: 0rem 3.75rem;
-    background-color: $s7;
-
-   article{
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    background: url('../../../../public/images/brian-babb-XbwHrt87mQ0-unsplash.jpg');
+    background-position: center;
+    background-size: cover;
+   
+    article{
     padding: 12.5rem 0rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: $s12;
+
     h1{
-        font-size: 3rem;
-        font-family: 'Title';
-    }
+          font-size: 3rem;
+          font-family: 'Title';
+      }
 
-    h2{
-        font-family: 'Title';
-    }
+      h2{
+          font-family: 'Title';
+          margin-bottom: .75rem;
+      }
 
-    p{
-        font-family: 'Text-L';
-        font-size: 1.2rem;
-        max-width: 43.75rem;
-        text-align: justify;
-    }
+      p{
+          font-family: 'Text-M';
+          font-size: 1.2rem;
+          max-width: 43.75rem;
+          text-align: justify;
+          margin: auto;
+      }
 
-    button{
+      button{
         background-color: $p1;
         border: .125rem solid $p6;
         color: $s6;
@@ -82,13 +95,13 @@ $sucess:#A7C957;
         transition: .4s;
         border-radius: .5rem;
         cursor: pointer;
-        margin-top: .75rem;
+        margin-top: 2.5rem;
         
         &:hover{
             border-color: $p1;
             background-color: $p6;
             color: $s12;
         }
-    }
+      }
    }
 }

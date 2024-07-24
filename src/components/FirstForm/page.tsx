@@ -3,7 +3,7 @@ import styles from './styles/firstForm.module.scss'
 export default function FirstForm(){
     return(
         <>
-        <form>
+        <form className={styles.form}>
             <label htmlFor="type">Tipo de financiamento desejado</label>
             <select name="type" id="type">
                 <option value="">Selecione uma opção de financiamento</option>
@@ -16,7 +16,7 @@ export default function FirstForm(){
             <input type="text" name="valueOfFinancement" id="valueOfFinancement" />
 
             <div>
-                <button>Voltar</button>
+                <button disabled>Voltar</button>
                 <button>Avançar</button>
             </div>
         </form>

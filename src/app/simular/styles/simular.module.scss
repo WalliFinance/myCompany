@@ -1,0 +1,174 @@
+$p1:#003049;
+$p2:#005480;
+$p3:#0081C3;
+$p4:#00A3F6;
+$p5:#2FB9FF;
+$p6:#7DD3FF;
+$s1:#212529;
+$s2:#343A40;
+$s3:#495057;
+$s4:#6C757D;
+$s5:#ADB5BD;
+$s6:#CED4DA;
+$s7:#1C2024;
+$s8:#0E1114;
+$s9:#0B1015;
+$s10:#060A0D;
+$s11:#040709;
+$s12:#000000;
+$warning:#D90429;
+$sucess:#A7C957;
+$white : #FFFFFF;
+$shadow: rgba(0,0,0,25%);
+
+@font-face {
+  font-family:'Button';
+  src: url('../../../../public/fonts/Roboto-Medium.ttf');
+}
+
+@font-face {
+  font-family:'Button-Hover';
+  src: url('../../../../public/fonts/Roboto-Bold.ttf');
+}
+
+@font-face {
+  font-family:'Title' ;
+  src: url('../../../../public/fonts/Merriweather-Bold.ttf');
+}
+
+@font-face {
+  font-family: 'Text-L';
+  src: url('../../../../public/fonts/QueensidesLight-ZVj3l.ttf');
+}
+
+@font-face {
+  font-family: 'Text-M';
+  src: url('../../../../public/fonts/QueensidesMedium-x30zV.ttf');
+}
+
+.main{
+    padding:10.75rem  2rem;
+    background-color: $s7;
+    height: 100vh;
+    position: relative;
+
+    h1{
+       font-size: 3rem;
+       color: $s6;
+       font-family: 'Title'; 
+    }
+
+    h2{
+        font-family: 'Title';
+        color: $s6;
+        margin-bottom: 1.25rem;
+    }
+
+
+    .steps{
+        display: flex;
+        align-items: center;
+        gap: 1.25rem;
+        margin-bottom: 1.25rem;
+
+        .step{
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+
+            h3{
+                font-family: 'Title';
+                border: .125rem solid $s8;
+                padding: .875rem 1.5rem;
+                border-radius: 50%;
+                color: $s8;
+                font-size: 1.6rem;
+            }
+
+            p{
+                color: $s8;
+                font-family: 'Text-M';
+                font-size: 1.2rem;
+            }
+
+            
+        }
+
+        .stepActive{
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+
+            h3{
+                font-family: 'Title';
+                border: .125rem solid $p4;
+                padding: .875rem 1.5rem;
+                border-radius: 50%;
+                color: $p4;
+                font-size: 1.6rem;
+            }
+
+            p{
+                color: $p4;
+                font-family: 'Text-M';
+                font-size: 1.2rem;
+            }
+        }
+    }
+
+    article{
+      display: none;
+      position: absolute;
+      top: 0;
+      right: 0;
+      background-color: $s8;
+      border: .125rem solid $s9;
+      height: 50rem;
+      width: 43.75rem;
+      z-index: 7000;
+      padding: 2.5rem;
+      border-radius: .75rem;
+
+      h3{
+        font-size: 2rem;
+        font-family: 'Title';
+        color: $s6;
+      }
+
+      p{
+        font-size: 1.3rem;
+        color: $s5;
+        font-family: 'Text-M';
+
+        &:nth-child(n+2){
+          margin: 1.25rem 0rem;
+        }
+      }
+
+      div{
+        display: flex;
+        gap: 1.25rem;
+        margin-top: 3.75rem;
+        button{
+          background-color: $p1;
+              border: .125rem solid $p6;
+              color: $s6;
+              padding: .5rem 2rem;
+              text-transform: uppercase;
+              font-family: 'Button';
+              transition: .4s;
+              border-radius: .5rem;
+              cursor: pointer;
+              width:250px;
+              
+              &:hover{
+                  border-color: $p1;
+                  background-color: $p6;
+                  color: $s12;
+              }
+              
+             
+      }
+      }
+    }
+}

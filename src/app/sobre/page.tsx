@@ -1,16 +1,18 @@
+'use client'
 import Image from 'next/image'
 import styles from './styles/sobre.module.scss'
 import companyImage from '@/public/images/company.svg'
 import joaoImage from '@/public/images/joao.svg'
 import mariaImage from '@/public/images/maria.svg'
 import pedroImage from '@/public/images/pedro.svg'
+import { useEffect } from 'react'
 
 export default function Sobre(){
+    useEffect(()=>{
+        document.title = 'Sobre-nos'
+    },[])
     return(
         <>
-        <head>
-            <title>Sobre-nos</title>
-        </head>
         <section className={styles.main}>
             <article className={styles.info}>
                 <h2>Nossa história</h2>

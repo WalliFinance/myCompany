@@ -1,9 +1,9 @@
-import styles from '@/src/styles/form.module.scss'
+import styles from './styles/secondForm.module.scss'
 
 export default function SecondForm(){
     return(
        <>
-        <form>
+        <form className={styles.form}>
             <label htmlFor="name">Nome</label>
             <input type="text" name="name" id="name"/>
             <label htmlFor="email">Email</label>
