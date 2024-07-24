@@ -112,9 +112,10 @@ $white:#FFFFFF;
     height: max-content;
     background: unset;
     background-color: $s7;
-    color: $white;
+   
     
     article{
+      color: $white;
       h1{
         font-size:2rem;
       }
