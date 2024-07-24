@@ -292,12 +292,16 @@ $sucess:#A7C957;
                   .employee3
                   {
                     .employeeInfos{
+                        width: 100%;
+                        text-align: center;
                         p{
                         padding: .4rem 1.25rem;
                         padding-bottom: .75rem;
                         font-family: 'Text-L';
                         color: $s6;
                         width: 15.625rem;
+                        text-align: center;
+                        margin: auto auto;
                         }
                  }
                   }    
