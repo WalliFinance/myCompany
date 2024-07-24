@@ -9,7 +9,7 @@ export default function Header(){
   const secondLink = useRef<HTMLAnchorElement>(null)
   const thirdLink = useRef<HTMLAnchorElement>(null)
   const refUl = useRef<HTMLUListElement>(null)
-  const [currentPath, setCurrentPath] = useState<string>(window.location.pathname)
+  const [currentPath, setCurrentPath] = useState<string>('')
 
   
   const handlePathChange = (newPath:string) =>{
