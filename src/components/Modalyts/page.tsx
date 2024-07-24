@@ -12,8 +12,8 @@ export default function Modalyts(){
         <h1>Financiamento imobiliario</h1>
         {size.width<1000?(
               <Image
-              width={450}
-              height={400}
+              width={350}
+              height={350}
               src={financementImg}
               alt="Imagem que ilustra o financiamento imobiliario"
               />
@@ -61,8 +61,8 @@ export default function Modalyts(){
         <h1>Crédito com garantia de imovel</h1>
         {size.width<1000?(
              <Image
-             width={450}
-             height={400}
+             width={350}
+             height={350}
              src={creditImg}
              alt="Imagem que representa o crédito com garantia de imovel"
              />
