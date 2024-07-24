@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import styles from './styles/simular.module.scss'
 
 export default function Simulacao(){
-    const [currentStep,setCurrentStep] = useState(1)
+    const [currentStep,setCurrentStep] = useState(0)
     const [type,setType] = useState('')
     const [value,setValue] =  useState('')
     const [financedValue,setFinancedValue] = useState('')
