@@ -15,7 +15,11 @@ export default function Header(){
 
   function expandMenu(){
     if(refUl.current){
-      refUl.current.style.display = 'flex'
+      if(refUl.current.style.display === 'none'){
+        refUl.current.style.display = 'flex'
+      }else{
+        refUl.current.style.display = 'none'
+      }
     }
   }
   const handlePathChange = (newPath:string) =>{
