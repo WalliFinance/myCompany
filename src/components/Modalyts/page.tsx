@@ -1,6 +1,6 @@
 import Image from "next/image";
-import creditImg from '@/public/images/credit.svg'
-import financementImg from '@/public/images/financement.svg'
+import creditImg from '@/public/images/credit.jpg'
+import financementImg from '@/public/images/financement.jpg'
 import styles from './styles/modalyts.module.scss'
 import useWindowSize from "@/src/utils/useWindowSize";
 import { useTransform ,motion,useScroll} from "framer-motion";

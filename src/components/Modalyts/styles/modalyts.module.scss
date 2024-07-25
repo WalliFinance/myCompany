@@ -59,6 +59,11 @@ padding: 1.25rem 0rem;
         color: $s12;
         font-family: 'Title';
     }
+    img{
+      margin-top: .25rem;
+      margin-bottom: 1.25rem;
+      object-fit: cover;
+    }
 
     p{
         font-family: 'Text-M';

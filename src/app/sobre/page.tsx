@@ -1,7 +1,7 @@
 'use client'
 import Image from 'next/image'
 import styles from './styles/sobre.module.scss'
-import companyImage from '@/public/images/company.svg'
+import companyImage from '@/public/images/company.jpg'
 import joaoImage from '@/public/images/joao.svg'
 import mariaImage from '@/public/images/maria.svg'
 import pedroImage from '@/public/images/pedro.svg'
