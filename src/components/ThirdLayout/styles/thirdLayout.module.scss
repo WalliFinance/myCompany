@@ -2,3 +2,9 @@
     height: 200vh;
     position: relative;
 }
+
+@media(max-width:640px){
+    .main{
+    margin-top: 106.25rem;
+    }
+}
