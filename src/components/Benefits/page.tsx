@@ -30,6 +30,7 @@ export default function Benefits(){
          </ul>
             </section>
 
+         <div className={styles.footerContainer}>
          <footer>
         <div className={styles.firstContainer}>
             <h2>Logo</h2>
@@ -143,6 +144,7 @@ export default function Benefits(){
             </div>
         </div>
          </footer>
+         </div>
         </main>
     )
 }

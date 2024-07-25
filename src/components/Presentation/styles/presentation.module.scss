@@ -48,14 +48,11 @@ $white:#FFFFFF;
 
 .main{
     height: 100vh;
-    position: absolute;
-    top: -3.75rem;
-    width: 100%;
-    margin-top: 3.75rem;
+    position: sticky;
+    top: 0rem;
     padding: 0rem 3.75rem;
     display: grid;
     place-items: center;
-    overflow: hidden;
     background: url('../../../../public/images/brian-babb-XbwHrt87mQ0-unsplash.jpg');
     background-position: center;
     background-size: cover;
@@ -98,6 +95,9 @@ $white:#FFFFFF;
         cursor: pointer;
         margin-top: 2.5rem;
         
+        a{
+          color: inherit;
+        }
         &:hover{
             border-color: $p1;
             background-color: $p6;

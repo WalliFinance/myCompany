@@ -111,6 +111,11 @@ img{
             transition: .4s;
             border-radius: .5rem;
             cursor: pointer;
+
+            
+            a{
+            color: inherit;
+            }
             
             &:hover{
                 border-color: $p1;

@@ -4,6 +4,7 @@ import styles from './styles/header.module.scss'
 import { useEffect,useRef, useState } from "react"
 import Image from "next/image"
 import menuIcon from '@/public/assets/menu_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.svg'
+import { TransitionLink } from "@/src/utils/TransitionLink"
 
 
 export default function Header(){
@@ -98,19 +99,19 @@ export default function Header(){
           <h1>LOGO</h1>
             <ul ref={refUl}>
               <div>
-              <Link href={'/'} ref={firstLink}>
+              <TransitionLink href={'/'} ref={firstLink}>
                 Inicio
-                </Link>
+                </TransitionLink>
               <span className={styles.divisor}></span>
               </div>
                
                <div>
-               <Link href={'/sobre'} ref={secondLink}>Sobre</Link>
+               <TransitionLink href={'/sobre'} ref={secondLink}>Sobre</TransitionLink>
                <span className={styles.divisor}></span>
                </div>
                 
                 <div>
-                <Link href={'/contate'} ref={thirdLink}>Contate-nos</Link>
+                <TransitionLink href={'/contate'} ref={thirdLink}>Contate-nos</TransitionLink>
                 <span className={styles.divisor}></span>
                 </div>
             </ul>

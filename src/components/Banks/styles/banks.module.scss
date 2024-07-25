@@ -23,7 +23,9 @@ $sucess:#A7C957;
     width: 100%;
     padding: 3.75rem;
     background-color: $s7;
-
+    position: sticky;
+    top: 0;
+    height: 100vh;
     
     div{
     display: flex;

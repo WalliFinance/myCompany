@@ -3,11 +3,15 @@ import creditImg from '@/public/images/credit.svg'
 import financementImg from '@/public/images/financement.svg'
 import styles from './styles/modalyts.module.scss'
 import useWindowSize from "@/src/utils/useWindowSize";
+import { useTransform ,motion,useScroll} from "framer-motion";
 
-export default function Modalyts(){
+export default function Modalyts({scrollYProgress}:any){
     const size = useWindowSize()
+    const scale = useTransform(scrollYProgress, [0,1], [1,0.8])
+    const rotate = useTransform(scrollYProgress, [0,1], [0,-5])
+    
     return(
-       <main className={styles.main}>
+       <motion.main style={{scale,rotate}} className={styles.main}>
         <section>
         <h1>Financiamento imobiliario</h1>
         {size.width<1000?(
@@ -24,10 +28,10 @@ export default function Modalyts(){
             src={financementImg}
             alt="Imagem que ilustra o financiamento imobiliario"
             />
-        )}
-      
-        <p>Financiamento imobiliário é uma modalidade de crédito destinada à aquisição de imóveis, permitindo que os compradores adquiram uma propriedade sem a necessidade de pagar o valor total à vista. O valor financiado é pago em parcelas mensais ao longo de um período que pode variar de 20 a 30 anos, ou até mais, dependendo das condições do contrato.</p>
-
+        )}      
+        <p>Financiamento imobiliário é uma modalidade de crédito destinada à aquisição de imóveis, permitindo que os compradores adquiram uma propriedade sem a necessidade de pagar o valor total à vista. O valor financiado é pago em parcelas mensais ao longo de um período que pode variar de 20 a 30 anos, ou até mais, dependendo das condições do contrato.</p>      
+        <p>Financiamento imobiliário é uma modalidade de crédito destinada à aquisição de imóveis, permitindo que os compradores adquiram uma propriedade sem a necessidade de pagar o valor total à vista. O valor financiado é pago em parcelas mensais ao longo de um período que pode variar de 20 a 30 anos, ou até mais, dependendo das condições do contrato.</p>     
+          
         <div className={styles.benefits}>
             <div className={styles.benefitContainer}>
                 <h2>Prós</h2>
@@ -55,7 +59,7 @@ export default function Modalyts(){
                 </div>
             </div>
         </div>
-        </section>
+        </section> 
 
         <section>
         <h1>Crédito com garantia de imovel</h1>
@@ -102,7 +106,7 @@ export default function Modalyts(){
                 </div>
             </div>
         </div>
-        </section>
-       </main>
+        </section>       
+       </motion.main>
     )
 }

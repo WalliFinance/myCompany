@@ -6,11 +6,15 @@ import itauLogo from '@/public/images/itau-fundo-azul.svg'
 import interLogo from '@/public/images/inter.svg'
 import Link from 'next/link'
 import useWindowSize from '@/src/utils/useWindowSize'
+import { useTransform ,motion} from 'framer-motion'
 
-export default function Banks(){
+export default function Banks({scrollYProgress}:any){
     const size = useWindowSize()
+    const scale = useTransform(scrollYProgress, [0,1], [1,0.8])
+    const rotate = useTransform(scrollYProgress, [0,1], [0,-5])
+    
     return(
-        <section className={styles.container}>
+        <motion.section style={{scale,rotate}} className={styles.container}>
             <div>
                 <article>
                     <Link href={'/simular'}>
@@ -95,6 +99,6 @@ export default function Banks(){
                     </Link>
                 </article>
             </div>
-        </section>
+        </motion.section>
     )
 }

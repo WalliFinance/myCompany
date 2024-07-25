@@ -4,6 +4,7 @@ import FirstForm from "@/src/components/FirstForm/page";
 import SecondForm from "@/src/components/SecondForm/page";
 import { useEffect, useRef, useState } from "react";
 import styles from './styles/simular.module.scss'
+import Inner from "@/src/components/Inner/lnner";
 
 export default function Simulacao(){
     const [currentStep,setCurrentStep] = useState(0)
@@ -29,7 +30,8 @@ export default function Simulacao(){
     },[])
 
     return(
-        <main className={styles.main}>
+        <>
+            <main className={styles.main}>
         <h1>Simule seu financiamento</h1>
         <h2>Encontre a Melhor Opção para Realizar o Sonho da Casa Própria em Poucos Minutos</h2>
 
@@ -86,5 +88,7 @@ export default function Simulacao(){
             </div>
         </article>
         </main>
+        </>
+        
     )
 }

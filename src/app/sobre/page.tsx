@@ -7,6 +7,7 @@ import mariaImage from '@/public/images/maria.svg'
 import pedroImage from '@/public/images/pedro.svg'
 import { useEffect } from 'react'
 import useWindowSize from '@/src/utils/useWindowSize'
+import Inner from '@/src/components/Inner/lnner'
 
 export default function Sobre(){
     const size = useWindowSize()

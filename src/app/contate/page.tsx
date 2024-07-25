@@ -5,6 +5,7 @@ import { useEffect } from 'react'
 import emailIcon from '@/public/assets/email-icon.svg'
 import phoneIcon from '@/public/assets/phone-icon.svg'
 import wppIcon from '@/public/assets/wpp2.svg'
+import Inner from '@/src/components/Inner/lnner'
 
 
 export default function Contate(){
@@ -15,7 +16,8 @@ document.title = 'Contate-nos'
 
 
     return(
-        <main className={styles.main}>
+        <>
+             <main className={styles.main}>
         <h1>Tem alguma duvida ou sugestão?</h1>
         <h2>Fale conosco</h2>
 
@@ -77,5 +79,7 @@ document.title = 'Contate-nos'
             </article>
         </section>
         </main>
-    )
+ 
+        </>
+          )
 }

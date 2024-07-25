@@ -46,6 +46,8 @@ $sucess:#A7C957;
 }
 
 .main{
+    height: 100vh;
+    position: relative;
     section{
         padding: 2rem 3.75rem;
         background-color: $s6;
@@ -70,14 +72,22 @@ $sucess:#A7C957;
             font-family: 'Title';
         }
     }
+    .footerContainer{
+        height: 25rem;
+        position: relative;
+        width: 100%;
+        clip-path: polygon(0% 0, 100% 0%, 100% 100% , 0 100%);
 
-    footer{
+        footer{
+        width: 100%;
+        bottom: 0;
+        position: fixed;
         background-color: $s9;
         display: flex;
         justify-content: space-between;
         padding: 1.25rem;
         align-items: center;
-        height: 18.75rem;
+        height: 25rem;
 
         h2{
             font-family: 'Title';
@@ -87,6 +97,7 @@ $sucess:#A7C957;
         .firstContainer{
             display: flex;
             flex-direction: column;
+            color: $s6;
             gap: .5rem;
             div{
                 display: flex;
@@ -110,6 +121,7 @@ $sucess:#A7C957;
                 border-color: $p6;
                 }
             }
+        }
         }
     }
 }
