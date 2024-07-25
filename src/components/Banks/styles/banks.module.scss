@@ -47,6 +47,8 @@ $sucess:#A7C957;
 
 @media(max-width:640px){
     .container{
+        position: unset;
+        height: unset;
         div{
             display: grid;
             grid-template-columns: repeat(2,9.375rem);

@@ -14,91 +14,105 @@ export default function Banks({scrollYProgress}:any){
     const rotate = useTransform(scrollYProgress, [0,1], [0,-5])
     
     return(
-        <motion.section style={{scale,rotate}} className={styles.container}>
+        <>
+        {size.width<1000?(
+            <section className={styles.container}>
             <div>
                 <article>
                     <Link href={'/simular'}>
-                    {size.width<1000?(
-                         <Image
+                    <Image
                          width={60}
                          height={60}
                          alt='Logotipo itau'
                          src={itauLogo}
-                         />
-                    ):(
-                        <Image
+                    />
+                    </Link>
+                </article>
+
+                <article>
+                    <Link href={'/simular'}>
+                    <Image
+                        width={60}
+                        height={60}
+                        alt='Logotipo bradesco'
+                        src={bradescoLogo}
+                    /> 
+                    </Link>
+                </article>
+
+                <article>
+                    <Link href={'/simular'}>
+                    <Image
+                        width={60}
+                        height={60}
+                        alt='Logotipo santander'
+                        src={santanderLogo}
+                        />
+                    </Link>
+                </article>
+
+                <article>
+                    <Link href={'/simular'}>
+                    <Image
+                        width={60}
+                        height={60}
+                        alt='Logotipo inter'
+                        src={interLogo}
+                    />
+                    </Link>
+                </article>
+            </div>
+        </section>
+        ):(
+        <motion.section style={{scale,rotate}} className={styles.container}>
+            <div>
+                <article>
+                    <Link href={'/simular'}>
+                    <Image
                         width={300}
                         height={300}
                         alt='Logotipo itau'
                         src={itauLogo}
                         />
-                    )}
-                   
                     </Link>
                 </article>
 
                 <article>
                     <Link href={'/simular'}>
-                    {size.width<1000?(
-                        <Image
-                        width={60}
-                        height={60}
-                        alt='Logotipo bradesco'
-                        src={bradescoLogo}
-                        />
-                    ):(
-                        <Image
+                    <Image
                         width={300}
                         height={300}
                         alt='Logotipo bradesco'
                         src={bradescoLogo}
                         />
-                    )}
-                    
                     </Link>
                 </article>
 
                 <article>
                     <Link href={'/simular'}>
-                    {size.width<1000?(
-                        <Image
-                        width={60}
-                        height={60}
-                        alt='Logotipo santander'
-                        src={santanderLogo}
-                        />
-                    ):(
-                        <Image
+                    <Image
                         width={300}
                         height={300}
                         alt='Logotipo santander'
                         src={santanderLogo}
                         />
-                    )}
-                    
                     </Link>
                 </article>
 
                 <article>
                     <Link href={'/simular'}>
-                    {size.width<1000?(
-                        <Image
-                        width={60}
-                        height={60}
-                        alt='Logotipo inter'
-                        src={interLogo}
-                        />
-                    ):(
-                        <Image
+                    <Image
                         width={300}
                         height={300}
                         alt='Logotipo inter'
                         src={interLogo}
-                        />
-                    )}
+                    />
                     </Link>
                 </article>
             </div>
         </motion.section>
+        )}
+        </>
+        
     )
 }
