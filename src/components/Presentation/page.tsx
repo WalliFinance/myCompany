@@ -11,7 +11,7 @@ const Presentation = ({scrollYProgress}:any) =>{
     return(
         <>
         {size.width<1000?(
-        <main  className={styles.main}>
+        <main className={styles.main}>
         <article>
             <h1>Inovação financeira para o seu imóvel dos sonhos</h1>
             <h2>Transformando o Financiamento Imobiliário com Tecnologia de Ponta</h2>

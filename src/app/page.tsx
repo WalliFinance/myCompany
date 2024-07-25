@@ -6,8 +6,13 @@ import { useScroll } from "framer-motion";
 import Lenis from "lenis";
 import SecondLayout from "../components/SecondLayout/SecondLayout";
 import ThirdLayout from "../components/ThirdLayout/ThirdLayout";
+import useWindowSize from "../utils/useWindowSize";
+import Modalyts from "../components/Modalyts/page";
+import Banks from "../components/Banks/page";
+import Benefits from "../components/Benefits/page";
 
 export default function Home() {
+  const size = useWindowSize()
   const container = useRef<HTMLElement>(null)
   const{scrollYProgress} = useScroll({
     target:container,
@@ -28,10 +33,12 @@ export default function Home() {
   })
 
   return (
+    <>
     <main className={styles.main} ref={container}>
-     <Presentation scrollYProgress={scrollYProgress}/>
-     <SecondLayout/>
-     <ThirdLayout/>
-    </main>
+        <Presentation scrollYProgress={scrollYProgress}/>
+        <SecondLayout/>
+        <ThirdLayout/>
+    </main>   
+    </>
   );
 }

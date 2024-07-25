@@ -132,12 +132,13 @@ padding: 1.25rem 0rem;
 
 @media(max-width:640px){
  .main{
-  margin-top: 80rem;
+  margin-top: 0rem;
   padding: 0rem 1.25rem;
   position: unset;
+  height: max-content;
   section{
     img{
-      margin-top: -90px;
+      margin-top: 0px;
     }
     h1{
       font-size: 2rem;
@@ -146,7 +147,7 @@ padding: 1.25rem 0rem;
     p{
       width:21.875rem;
       font-size: 1.1rem;
-      margin-top: -90px;
+      margin-top: 0px;
     }
 
     .benefits{
