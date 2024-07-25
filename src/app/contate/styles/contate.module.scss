@@ -69,6 +69,13 @@ $shadow: rgba(0,0,0,25%);
         align-items: center;
 
         form{
+            span{
+                font-size: 0.875rem;
+                margin-bottom: .5rem;
+                font-size: 'Text-L';
+                color: $warning;
+                display: block;
+              }   
             label{
                 display: block;
             font-size: 1.2rem;

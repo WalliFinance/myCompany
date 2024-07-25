@@ -7,12 +7,21 @@ import mariaImage from '@/public/images/maria.svg'
 import pedroImage from '@/public/images/pedro.svg'
 import { useEffect } from 'react'
 import useWindowSize from '@/src/utils/useWindowSize'
-import Inner from '@/src/components/Inner/lnner'
+import Lenis from 'lenis'
 
 export default function Sobre(){
     const size = useWindowSize()
     useEffect(()=>{
         document.title = 'Sobre-nos'
+
+        const lenis = new Lenis()
+
+        function raf(time:any){
+          lenis.raf(time)
+          requestAnimationFrame(raf)
+        }
+    
+        requestAnimationFrame(raf)
     },[])
     return(
         <>

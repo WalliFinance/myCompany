@@ -5,14 +5,46 @@ import { useEffect } from 'react'
 import emailIcon from '@/public/assets/email-icon.svg'
 import phoneIcon from '@/public/assets/phone-icon.svg'
 import wppIcon from '@/public/assets/wpp2.svg'
-import Inner from '@/src/components/Inner/lnner'
+import Lenis from 'lenis'
+import { z } from "zod"
+import { useForm } from "react-hook-form"
+import { zodResolver } from '@hookform/resolvers/zod'
 
 
 export default function Contate(){
+    const createMessageDataForm = z.object({
+    name:z.string()
+    .min(1,"O nome é obrigatório"),
+    email:z.string().min(1,"Email é obrigatorio").email("Formato de email invalido"),
+    about:z.string()
+    .min(1,"O valor assunto é obrigatorio"),
+    message:z.string()
+    .min(1,'A mensagem é obrigatória')
+  })
+
+  const { register, handleSubmit, formState: { errors } } = useForm<messageData>({resolver:zodResolver(createMessageDataForm)})
+
+  type messageData = z.infer<typeof createMessageDataForm>
     
 useEffect(()=>{
 document.title = 'Contate-nos'
+
+const lenis = new Lenis()
+
+function raf(time:any){
+  lenis.raf(time)
+  requestAnimationFrame(raf)
+}
+
+requestAnimationFrame(raf)
 },[])
+
+    const onSubmit = (dataForm:messageData) =>{
+    console.log(dataForm.name)
+    console.log(dataForm.email)
+    console.log(dataForm.about)
+    console.log(dataForm.message)
+    }
 
 
     return(
@@ -22,15 +54,31 @@ document.title = 'Contate-nos'
         <h2>Fale conosco</h2>
 
         <section className={styles.container}>
-            <form>
+            <form onSubmit={handleSubmit(onSubmit)}>
                 <label htmlFor="name">Nome</label>
-                <input type="text" name='name' id='name' placeholder='Seu nome'/>
+                {errors.name && <span>{errors.name.message}</span>}
+                <input 
+                type="text" 
+                id='name'
+                {...register('name')} 
+                placeholder='Seu nome'/>
                 <label htmlFor="email">Email</label>
-                <input type="text" name='email' id='email' placeholder='Seu email'/>
+                {errors.email && <span>{errors.email.message}</span>}
+                <input 
+                type="text" 
+                {...register('email')} 
+                id='email' placeholder='Seu email'/>
                 <label htmlFor="about">Assunto</label>
-                <input type="text" name='about' id='about' placeholder='O assunto da mensagem'/>
+                {errors.about && <span>{errors.about.message}</span>}
+                <input 
+                type="text" 
+                {...register('about')}  
+                id='about' placeholder='O assunto da mensagem'/>
                 <label htmlFor="message">Mensagem</label>
-                <textarea name="message" id="message" placeholder='Deixe sua mensagem aqui.'>
+                {errors.message && <span>{errors.message.message}</span>}
+                <textarea 
+                {...register('message')} 
+                id="message" placeholder='Deixe sua mensagem aqui.'>
                 </textarea>
                 <button>Enviar mensagem</button>
             </form>

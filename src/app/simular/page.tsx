@@ -4,7 +4,9 @@ import FirstForm from "@/src/components/FirstForm/page";
 import SecondForm from "@/src/components/SecondForm/page";
 import { useEffect, useRef, useState } from "react";
 import styles from './styles/simular.module.scss'
-import Inner from "@/src/components/Inner/lnner";
+import emailjs from '@emailjs/browser'
+import * as gtag from "@/src/lib/gtag"
+
 
 export default function Simulacao(){
     const [currentStep,setCurrentStep] = useState(0)
@@ -17,13 +19,107 @@ export default function Simulacao(){
     const [birtday,setBirthday] = useState('')
     const refSummary = useRef<HTMLElement>(null)
 
+    const initialFormData={
+        name: '',
+        type: '',
+        value: '',
+        email: '',
+        phone: '',
+        date: '',
+        financedValue:''
+      }
+    
+      const [formData, setFormData] = useState(initialFormData)
+      
+      const date = new Date(formData.date)
+      const day = date.getDay()
+      const month = date.getMonth()
+      const year = date.getFullYear()
+      let fullDate;
+      
+      if(day<10){
+      fullDate = `0${day}/0${month}/${year}`
+      }else{
+      fullDate =  `${day}/${month}/${year}`
+      }
+    
+      const formatValue = formData.value.replace(/[^\d]/g, '')
+      const formatValue2 = formData.financedValue.replace(/[^\d]/g, '')
+      const numberSub = Number(formatValue) - Number(formatValue2)
+      const numberWithPoints = `${numberSub}`.replace(/\B(?=(\d{3})+(?!\d))/g, '.')
+    
+      const templateParams = {
+      typeOfFinancement: formData.type,
+      value: formData.value,
+      name: formData.name,
+      email: formData.email,
+      phone: formData.phone,
+      financedValue: numberWithPoints,
+      birthday: fullDate
+    }
+    
+      const prevStep = () => setCurrentStep((prevStep)=>prevStep-1);
+    
+      const handleChange = (e:any)=>{
+        const {name,value} = e.target
+        setFormData({...formData, [name]:value})
+      }
+    
+     
+      const serviceId:any= process.env.NEXT_PUBLIC_MY_SERVICE_ID
+      const templateId:any=process.env.NEXT_PUBLIC_MY_TEMPLATE_ID
+      const publicKey:any=process.env.NEXT_PUBLIC_MY_PUBLIC_KEY
+    
+      
+      const confirmSendEmail = () =>{
+        alert('Um consultor ja foi notificado aguarde o contato!')
+
+        emailjs.send(
+            serviceId,
+            templateId,
+            templateParams,
+           {
+             publicKey: publicKey,
+           }
+        )
+       
+            setTimeout(() => {
+                if(refSummary.current){
+                    refSummary.current.style.display = 'none'
+
+                }
+            window.location.href = '/'
+            }, 1000);
+        }
+      
+
+
+      const nextStep = () => {
+        if(formData.type!=='' && formData.value!=='' && formData.financedValue!=='' && currentStep===0){
+          setCurrentStep(currentStep + 1);
+        }else if(formData.type!=='' && formData.value!=='' && formData.name!=='' && formData.phone!=='' && formData.email!==''&& formData.date!=='' && currentStep===1){
+            setType(formData.type)
+            setValue(formData.value)
+            setFinancedValue(formData.financedValue)
+            setName(formData.name)
+            setEmail(formData.email)
+            setPhone(formData.phone)
+            setBirthday(fullDate)
+          if(refSummary.current){
+            refSummary.current.style.display ='block'
+          }
+        }else{   
+      }
+    }
+
     function closeSummary(){
     if(refSummary.current)refSummary.current.style.display='none'
     }
 
-    function showModal(){
-    if(refSummary.current)refSummary.current.style.display='block'
-    }
+    const steps = [
+        <FirstForm handleChange={handleChange} data={formData} key={'null'} buttonEvent={nextStep}/>,
+        <SecondForm handleChange={handleChange} data={formData} key={'null'} simulateEvent={nextStep} backStep={prevStep}/>
+    ]
 
     useEffect(()=>{
         document.title = 'Simulação'
@@ -64,15 +160,9 @@ export default function Simulacao(){
            
         </div>
         
-        {currentStep===0?(
-        <div> 
-        <FirstForm/>
-        </div>
-        ):(
         <div>
-        <SecondForm/>
+        {steps[currentStep]}
         </div>
-        )}
     
         <article ref={refSummary}>
             <h3>Resumo financiamento</h3>
@@ -84,7 +174,7 @@ export default function Simulacao(){
             <p>Data de nascimento: {birtday}</p>
             <div>
                 <button onClick={closeSummary}>Alterar informações</button>
-                <button>Confirmar</button>
+                <button onClick={confirmSendEmail}>Confirmar</button>
             </div>
         </article>
         </main>
