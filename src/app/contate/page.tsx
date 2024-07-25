@@ -9,6 +9,7 @@ import Lenis from 'lenis'
 import { z } from "zod"
 import { useForm } from "react-hook-form"
 import { zodResolver } from '@hookform/resolvers/zod'
+import emailjs from '@emailjs/browser'
 
 
 export default function Contate(){
@@ -16,6 +17,8 @@ export default function Contate(){
     name:z.string()
     .min(1,"O nome é obrigatório"),
     email:z.string().min(1,"Email é obrigatorio").email("Formato de email invalido"),
+    phone:z.string()
+    .min(11,"Formato de numero invalido"),
     about:z.string()
     .min(1,"O valor assunto é obrigatorio"),
     message:z.string()
@@ -39,11 +42,30 @@ function raf(time:any){
 requestAnimationFrame(raf)
 },[])
 
+const serviceId:any= process.env.NEXT_PUBLIC_MY_SERVICE_ID2
+const templateId:any=process.env.NEXT_PUBLIC_MY_TEMPLATE_ID2
+const publicKey:any=process.env.NEXT_PUBLIC_MY_PUBLIC_KEY2
+
     const onSubmit = (dataForm:messageData) =>{
-    console.log(dataForm.name)
-    console.log(dataForm.email)
-    console.log(dataForm.about)
-    console.log(dataForm.message)
+        const templateParams = {
+            name:dataForm.name,
+            email:dataForm.email,
+            phone:dataForm.phone,
+            about:dataForm.about,
+            message:dataForm.message
+        }
+    emailjs.send(
+        serviceId,
+        templateId,
+        templateParams,
+        {
+            publicKey:publicKey
+        }
+    )
+
+    setTimeout(() => {
+        alert('O email foi enviado para nosso suporte em 24 horas um de nossos funcionarios ira te contactar.')
+    }, 2000);    
     }
 
 
@@ -68,6 +90,12 @@ requestAnimationFrame(raf)
                 type="text" 
                 {...register('email')} 
                 id='email' placeholder='Seu email'/>
+                <label htmlFor="phone">Telefone</label>
+                {errors.phone && <span>{errors.phone.message}</span>}
+                <input 
+                type="text" 
+                {...register('phone')} 
+                id='phone' placeholder='Seu telefone'/>
                 <label htmlFor="about">Assunto</label>
                 {errors.about && <span>{errors.about.message}</span>}
                 <input 
@@ -85,7 +113,6 @@ requestAnimationFrame(raf)
 
             <article>
                 <h3>Deseja nos contatar por outros meios?</h3>
-
                 <div className={styles.containerContact}>
                     <div className={styles.iconContainer}>
                     <Image
