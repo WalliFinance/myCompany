@@ -66,7 +66,7 @@ export default function Benefits(){
         </div>
         <div className={styles.secondContainer}>
             <div>
-                <Link href={'/'} tabIndex={63} aria-label='Link que leva direto para nosso whatsapp'>
+                <Link href={'https://contate.me/testewall'} tabIndex={63} aria-label='Link que leva direto para nosso whatsapp'>
                 {size.width<1000?(
                     <Image
                     width={30}
@@ -86,7 +86,7 @@ export default function Benefits(){
                 </Link>
             </div>
             <div>
-                <Link href={'/'} tabIndex={64} aria-label='Link que leva direto para nosso facebook'>
+                <Link href={'https://www.facebook.com/profile.php?id=61562086139122'} tabIndex={64} aria-label='Link que leva direto para nosso facebook'>
                     {size.width<1000?(
                          <Image
                          width={30}
@@ -105,7 +105,7 @@ export default function Benefits(){
                 </Link>
             </div>
             <div>
-            <Link href={'/'} tabIndex={65} aria-label='Link que leva direto para nosso twitter'>
+            <Link href={'https://x.com/wallifinance'} tabIndex={65} aria-label='Link que leva direto para nosso twitter'>
                 {size.width<1000?(
                     <Image
                     width={30}
@@ -124,7 +124,7 @@ export default function Benefits(){
                 </Link>
             </div>
             <div>
-            <Link href={'/'} tabIndex={66} aria-label='Link que leva direto para nosso instagram'>
+            <Link href={'https://www.instagram.com/wallifinance/?next=%2F'} tabIndex={66} aria-label='Link que leva direto para nosso instagram'>
                 {size.width<1000?(
                     <Image
                     width={30}
