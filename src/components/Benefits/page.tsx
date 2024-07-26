@@ -9,9 +9,22 @@ import ttLogo from '@/public/assets/tt-icon.svg'
 import instaLogo from '@/public/assets/ig-icon.svg'
 import Link from 'next/link';
 import useWindowSize from '@/src/utils/useWindowSize';
+import * as gtag from "@/lib/gtag"
 
 export default function Benefits(){
     const size = useWindowSize()
+
+    const trackEvent = (ev:any) =>{
+        gtag.event({
+          action: 'click',
+          category: 'Button',
+          label: 'Social media button',
+          page_location:ev.currentTarget.href,
+          value:1
+        })
+    }
+
+
     return(
         <main className={styles.main}>
             <section>
@@ -66,7 +79,10 @@ export default function Benefits(){
         </div>
         <div className={styles.secondContainer}>
             <div>
-                <Link href={'https://contate.me/testewall'} tabIndex={63} aria-label='Link que leva direto para nosso whatsapp'>
+                <Link 
+                target='_blank'
+                onClick={(ev)=>trackEvent(ev)}
+                href={'https://contate.me/testewall'} tabIndex={63} aria-label='Link que leva direto para nosso whatsapp'>
                 {size.width<1000?(
                     <Image
                     width={30}
@@ -86,7 +102,10 @@ export default function Benefits(){
                 </Link>
             </div>
             <div>
-                <Link href={'https://www.facebook.com/profile.php?id=61562086139122'} tabIndex={64} aria-label='Link que leva direto para nosso facebook'>
+                <Link 
+                target='_blank'
+                onClick={(ev)=>trackEvent(ev)}
+                href={'https://www.facebook.com/profile.php?id=61562086139122'} tabIndex={64} aria-label='Link que leva direto para nosso facebook'>
                     {size.width<1000?(
                          <Image
                          width={30}
@@ -105,7 +124,10 @@ export default function Benefits(){
                 </Link>
             </div>
             <div>
-            <Link href={'https://x.com/wallifinance'} tabIndex={65} aria-label='Link que leva direto para nosso twitter'>
+            <Link 
+            target='_blank'
+            onClick={(ev)=>trackEvent(ev)}
+            href={'https://x.com/wallifinance'} tabIndex={65} aria-label='Link que leva direto para nosso twitter'>
                 {size.width<1000?(
                     <Image
                     width={30}
@@ -124,7 +146,10 @@ export default function Benefits(){
                 </Link>
             </div>
             <div>
-            <Link href={'https://www.instagram.com/wallifinance/?next=%2F'} tabIndex={66} aria-label='Link que leva direto para nosso instagram'>
+            <Link 
+            target='_blank'
+            onClick={(ev)=>trackEvent(ev)}
+            href={'https://www.instagram.com/wallifinance/?next=%2F'} tabIndex={66} aria-label='Link que leva direto para nosso instagram'>
                 {size.width<1000?(
                     <Image
                     width={30}

@@ -10,6 +10,8 @@ import { z } from "zod"
 import { useForm } from "react-hook-form"
 import { zodResolver } from '@hookform/resolvers/zod'
 import emailjs from '@emailjs/browser'
+import * as gtag from "@/src/lib/gtag"
+
 
 
 export default function Contate(){
@@ -54,6 +56,16 @@ const publicKey:any=process.env.NEXT_PUBLIC_MY_PUBLIC_KEY2
             about:dataForm.about,
             message:dataForm.message
         }
+
+        gtag.event({
+            action:'form_submit',
+            category: 'Form Submit',
+            label: 'Simulation form',
+            value:2,
+            page_location: window.location.href
+        })
+
+        
     emailjs.send(
         serviceId,
         templateId,
@@ -62,6 +74,8 @@ const publicKey:any=process.env.NEXT_PUBLIC_MY_PUBLIC_KEY2
             publicKey:publicKey
         }
     )
+
+    
 
     setTimeout(() => {
         alert('O email foi enviado para nosso suporte em 24 horas um de nossos funcionarios ira te contactar.')

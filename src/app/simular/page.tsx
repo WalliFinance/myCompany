@@ -5,7 +5,7 @@ import SecondForm from "@/src/components/SecondForm/page";
 import { useEffect, useRef, useState } from "react";
 import styles from './styles/simular.module.scss'
 import emailjs from '@emailjs/browser'
-import * as gtag from "@/src/lib/gtag"
+import * as gtag from "@/lib/gtag"
 
 
 export default function Simulacao(){
@@ -82,6 +82,14 @@ export default function Simulacao(){
              publicKey: publicKey,
            }
         )
+
+        gtag.event({
+          action:'form_submit',
+          category: 'Form Submit',
+          label: 'Simulation form',
+          value:2,
+          page_location: window.location.href
+        })
        
             setTimeout(() => {
                 if(refSummary.current){
@@ -168,14 +176,15 @@ export default function Simulacao(){
             <h3 tabIndex={11}>Resumo financiamento</h3>
             <p tabIndex={12}>Tipo de financiamento: {type}</p>
             <p tabIndex={13}>Valor do imóvel: {value}</p>
-            <p tabIndex={14}>Nome: {name}</p>
-            <p tabIndex={15}>Email: {email}</p>
-            <p tabIndex={16}>Telefone: {phone}</p>
-            <p tabIndex={17}>Data de nascimento: {birtday}</p>
+            <p tabIndex={14}>Valor financiado: {financedValue}</p>
+            <p tabIndex={15}>Nome: {name}</p>
+            <p tabIndex={16}>Email: {email}</p>
+            <p tabIndex={17}>Telefone: {phone}</p>
+            <p tabIndex={18}>Data de nascimento: {birtday}</p>
             <div>
-                <button tabIndex={18} aria-label="Botão que fecha o modal e te permite alterar suas informações" onClick={closeSummary}>Alterar informações</button>
+                <button tabIndex={19} aria-label="Botão que fecha o modal e te permite alterar suas informações" onClick={closeSummary}>Alterar informações</button>
                 <button onClick={confirmSendEmail}
-                tabIndex={19} aria-label="Botão que finaliza a simulação,e te leva para a pagina home, aguarde que um consultor nosso ira entrar em contato."
+                tabIndex={20} aria-label="Botão que finaliza a simulação,e te leva para a pagina home, aguarde que um consultor nosso ira entrar em contato."
                 >Confirmar</button>
             </div>
         </article>
