@@ -67,7 +67,7 @@ export default function Banks({scrollYProgress}:any){
         <motion.section style={{scale,rotate}} className={styles.container}>
             <div>
                 <article>
-                    <Link href={'/simular'}>
+                    <Link href={'/simular'} tabIndex={44} aria-label='Link que leva a página de simução'>
                     <Image
                         width={300}
                         height={300}
@@ -78,7 +78,7 @@ export default function Banks({scrollYProgress}:any){
                 </article>
 
                 <article>
-                    <Link href={'/simular'}>
+                    <Link href={'/simular'} tabIndex={45} aria-label='Link que leva a página de simução'>
                     <Image
                         width={300}
                         height={300}
@@ -89,7 +89,7 @@ export default function Banks({scrollYProgress}:any){
                 </article>
 
                 <article>
-                    <Link href={'/simular'}>
+                    <Link href={'/simular'} tabIndex={46} aria-label='Link que leva a página de simução'>
                     <Image
                         width={300}
                         height={300}
@@ -100,7 +100,7 @@ export default function Banks({scrollYProgress}:any){
                 </article>
 
                 <article>
-                    <Link href={'/simular'}>
+                    <Link href={'/simular'} tabIndex={47} aria-label='Link que leva a página de simução'>
                     <Image
                         width={300}
                         height={300}

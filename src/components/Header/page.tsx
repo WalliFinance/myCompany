@@ -99,23 +99,25 @@ export default function Header(){
           <h1>LOGO</h1>
             <ul ref={refUl}>
               <div>
-              <TransitionLink href={'/'} ref={firstLink}>
+              <TransitionLink ariaLabel={'Link que leva a pagina home'} tabIndex={1} href={'/'} ref={firstLink}>
                 Inicio
-                </TransitionLink>
+              </TransitionLink>
               <span className={styles.divisor}></span>
               </div>
                
                <div>
-               <TransitionLink href={'/sobre'} ref={secondLink}>Sobre</TransitionLink>
+               <TransitionLink ariaLabel={'Link que leva a sobre'} tabIndex={2}  href={'/sobre'} ref={secondLink}>Sobre</TransitionLink>
                <span className={styles.divisor}></span>
                </div>
                 
                 <div>
-                <TransitionLink href={'/contate'} ref={thirdLink}>Contate-nos</TransitionLink>
+                <TransitionLink ariaLabel={'Link que leva a pagina contate-nos'} tabIndex={3} href={'/contate'} ref={thirdLink}>Contate-nos</TransitionLink>
                 <span className={styles.divisor}></span>
                 </div>
             </ul>
-            <button ref={refButton}><Link href={'/simular'}>Simular</Link></button>
+            <button ref={refButton}>
+              <Link href={'/simular'} tabIndex={4} aria-label="Link que leva a pagina de simulação">Simular</Link>
+            </button>
           </nav>
         </header>
     )

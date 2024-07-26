@@ -53,6 +53,7 @@ export default function FirstForm({data,handleChange,buttonEvent}:any){
             <select 
             id="type"
             {...register("type")}
+            tabIndex={7}
             onChange={handleChange}
             value={data.type}
             aria-label='Qual tipo de financiamento você deseja'
@@ -69,11 +70,13 @@ export default function FirstForm({data,handleChange,buttonEvent}:any){
             {...register("value")}
             onChange={handleInputChange}
             value={data.value}
+            tabIndex={8}
             aria-label='Input Qual valor do imovel?'
             />
             <label htmlFor="financedValue">Valor a ser financiado</label>
             {errors.financedValue && <span>{errors.financedValue.message}</span>}
             <input 
+            tabIndex={9}
             type="text" 
             id="financedValue" 
             {...register('financedValue')}
@@ -83,7 +86,7 @@ export default function FirstForm({data,handleChange,buttonEvent}:any){
             />
             <div>
                 <button disabled>Voltar</button>
-                <button onClick={buttonEvent} aria-label='Próximo formulario'>Avançar</button>
+                <button onClick={buttonEvent} tabIndex={10}aria-label='Próximo formulario'>Avançar</button>
             </div>
         </form>
         </>

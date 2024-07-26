@@ -128,8 +128,8 @@ export default function Simulacao(){
     return(
         <>
             <main className={styles.main}>
-        <h1>Simule seu financiamento</h1>
-        <h2>Encontre a Melhor Opção para Realizar o Sonho da Casa Própria em Poucos Minutos</h2>
+        <h1 tabIndex={5}>Simule seu financiamento</h1>
+        <h2 tabIndex={6}>Encontre a Melhor Opção para Realizar o Sonho da Casa Própria em Poucos Minutos</h2>
 
         <div className={styles.steps}>
             {currentStep===0?(
@@ -165,16 +165,18 @@ export default function Simulacao(){
         </div>
     
         <article ref={refSummary}>
-            <h3>Resumo financiamento</h3>
-            <p>Tipo de financiamento: {type}</p>
-            <p>Valor do imóvel: {value}</p>
-            <p>Nome: {name}</p>
-            <p>Email: {email}</p>
-            <p>Telefone: {phone}</p>
-            <p>Data de nascimento: {birtday}</p>
+            <h3 tabIndex={11}>Resumo financiamento</h3>
+            <p tabIndex={12}>Tipo de financiamento: {type}</p>
+            <p tabIndex={13}>Valor do imóvel: {value}</p>
+            <p tabIndex={14}>Nome: {name}</p>
+            <p tabIndex={15}>Email: {email}</p>
+            <p tabIndex={16}>Telefone: {phone}</p>
+            <p tabIndex={17}>Data de nascimento: {birtday}</p>
             <div>
-                <button onClick={closeSummary}>Alterar informações</button>
-                <button onClick={confirmSendEmail}>Confirmar</button>
+                <button tabIndex={18} aria-label="Botão que fecha o modal e te permite alterar suas informações" onClick={closeSummary}>Alterar informações</button>
+                <button onClick={confirmSendEmail}
+                tabIndex={19} aria-label="Botão que finaliza a simulação,e te leva para a pagina home, aguarde que um consultor nosso ira entrar em contato."
+                >Confirmar</button>
             </div>
         </article>
         </main>

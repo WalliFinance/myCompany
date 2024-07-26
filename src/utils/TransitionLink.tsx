@@ -7,7 +7,9 @@ import { useRouter } from "next/navigation"
 interface TransitionLinkProps extends LinkProps{
     children: ReactNode,
     href: string,
-    ref: any
+    ref: any,
+    tabIndex: number,
+    ariaLabel:string
 }
 
 function sleep(ms:number):Promise<void>{
@@ -18,6 +20,8 @@ export const TransitionLink = ({
     children,
     href,
     ref,
+    tabIndex,
+    ariaLabel,
     ...props    
 }:TransitionLinkProps)=>{
     const router = useRouter()
@@ -34,5 +38,5 @@ export const TransitionLink = ({
 
     return <Link 
     onClick={handleTransition}
-    href={href} {...props} ref={ref}>{children}</Link>
+    href={href} {...props} ref={ref} aria-label={ariaLabel} tabIndex={tabIndex}>{children}</Link>
 }

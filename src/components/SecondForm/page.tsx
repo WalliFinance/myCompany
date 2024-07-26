@@ -36,6 +36,7 @@ export default function SecondForm({data,handleChange,simulateEvent,backStep}:an
             {...register("name")}
             onChange={handleChange}
             value={data.name}
+            tabIndex={5}
             aria-label='Input Qual seu nome?'
             />
             <label htmlFor="email">Email</label>
@@ -46,6 +47,7 @@ export default function SecondForm({data,handleChange,simulateEvent,backStep}:an
             {...register("email")}
             onChange={handleChange}
             value={data.email}
+            tabIndex={6}
             aria-label='Input Seu email'
             />
             <label htmlFor="phone">Telefone</label>
@@ -56,6 +58,7 @@ export default function SecondForm({data,handleChange,simulateEvent,backStep}:an
             {...register("phone")}
             onChange={handleChange}
             value={data.phone}
+            tabIndex={7}
             aria-label='Input Seu telefone'
             />
             <label htmlFor="date">Data de nascimento</label>
@@ -66,11 +69,12 @@ export default function SecondForm({data,handleChange,simulateEvent,backStep}:an
             {...register('date')}
             onChange={handleChange}
             value={data.date}
+            tabIndex={8}
             aria-label='Input Sua data de nascimento?'
             />
             <div>
-                <button onClick={backStep}>Voltar</button>
-                <button onClick={simulateEvent} aria-label='Botão para finalizar sua simulação cheque seu email após confirmar'>Simular</button>
+                <button onClick={backStep} tabIndex={9} aria-label='Botão que volta para o formulário passado'>Voltar</button>
+                <button onClick={simulateEvent} tabIndex={10} aria-label='Botão que abre um modal para confirmação de seus dados e envio do formulário'>Simular</button>
             </div>
         </form>
        </>
