@@ -97,7 +97,7 @@ export default function Simulacao(){
       const nextStep = () => {
         if(formData.type!=='' && formData.value!=='' && formData.financedValue!=='' && currentStep===0){
           setCurrentStep(currentStep + 1);
-        }else if(formData.type!=='' && formData.value!=='' && formData.name!=='' && formData.phone!=='' && formData.email!==''&& formData.date!=='' && currentStep===1){
+        }else if(formData.type!=='' && formData.value!=='' && formData.name!=='' && formData.phone!=='' && formData.email.match(/@.*\./) && formData.date!=='' && currentStep===1){
             setType(formData.type)
             setValue(formData.value)
             setFinancedValue(formData.financedValue)

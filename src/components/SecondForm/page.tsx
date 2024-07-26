@@ -74,7 +74,7 @@ export default function SecondForm({data,handleChange,simulateEvent,backStep}:an
             />
             <div>
                 <button onClick={backStep} tabIndex={9} aria-label='Botão que volta para o formulário passado'>Voltar</button>
-                <button onClick={simulateEvent} tabIndex={10} aria-label='Botão que abre um modal para confirmação de seus dados e envio do formulário'>Simular</button>
+                <button onClick={simulateEvent} tabIndex={10} aria-label='Botão que abre um modal para confirmação de seus dados e envio do formulário'>Finalizar</button>
             </div>
         </form>
        </>
