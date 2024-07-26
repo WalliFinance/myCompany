@@ -25,11 +25,11 @@ export default function Contate(){
     .min(1,"O valor assunto é obrigatorio"),
     message:z.string()
     .min(1,'A mensagem é obrigatória')
-  })
+    })
 
-  const { register, handleSubmit, formState: { errors } } = useForm<messageData>({resolver:zodResolver(createMessageDataForm)})
+    const { register, handleSubmit, formState: { errors } } = useForm<messageData>({resolver:zodResolver(createMessageDataForm)})
 
-  type messageData = z.infer<typeof createMessageDataForm>
+    type messageData = z.infer<typeof createMessageDataForm>
     
 useEffect(()=>{
 document.title = 'Contate-nos'
