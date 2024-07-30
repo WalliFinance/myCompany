@@ -60,8 +60,9 @@ export default function Header(){
          if(firstDivider && firstA){
            firstDivider.style.display = 'block'
            firstA.style.color = '#00A3F6'
-         } 
+        } 
      }else{
+
      }
     }
   }
