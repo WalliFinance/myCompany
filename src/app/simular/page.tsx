@@ -36,13 +36,8 @@ export default function Simulacao(){
       const month = date.getMonth()
       const year = date.getFullYear()
       let fullDate;
-      
-      if(day<10){
-      fullDate = `0${day}/0${month}/${year}`
-      }else{
       fullDate =  `${day}/${month}/${year}`
-      }
-    
+      
       const formatValue = formData.value.replace(/[^\d]/g, '')
       const formatValue2 = formData.financedValue.replace(/[^\d]/g, '')
       const numberSub = Number(formatValue) - Number(formatValue2)
@@ -55,7 +50,7 @@ export default function Simulacao(){
       email: formData.email,
       phone: formData.phone,
       financedValue: numberWithPoints,
-      birthday: fullDate
+      birthday: formData.date
     }
     
       const prevStep = () => setCurrentStep((prevStep)=>prevStep-1);
@@ -106,13 +101,16 @@ export default function Simulacao(){
         if(formData.type!=='' && formData.value!=='' && formData.financedValue!=='' && currentStep===0){
           setCurrentStep(currentStep + 1);
         }else if(formData.type!=='' && formData.value!=='' && formData.name!=='' && formData.phone!=='' && formData.email.match(/@.*\./) && formData.date!=='' && currentStep===1){
+            console.log(month)
+            console.log(day)
+            console.log(fullDate)
             setType(formData.type)
             setValue(formData.value)
             setFinancedValue(formData.financedValue)
             setName(formData.name)
             setEmail(formData.email)
             setPhone(formData.phone)
-            setBirthday(fullDate)
+            setBirthday(formData.date)
           if(refSummary.current){
             refSummary.current.style.display ='block'
           }

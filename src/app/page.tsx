@@ -6,11 +6,8 @@ import { useScroll } from "framer-motion";
 import Lenis from "lenis";
 import SecondLayout from "../components/SecondLayout/SecondLayout";
 import ThirdLayout from "../components/ThirdLayout/ThirdLayout";
-import useWindowSize from "../utils/useWindowSize";
-
 
 export default function Home() {
-  const size = useWindowSize()
   const container = useRef<HTMLElement>(null)
   const{scrollYProgress} = useScroll({
     target:container,

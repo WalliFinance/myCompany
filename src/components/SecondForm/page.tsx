@@ -10,7 +10,7 @@ export default function SecondForm({data,handleChange,simulateEvent,backStep}:an
         email:z.string().min(1,"Email é obrigatorio").email("Formato de email invalido"),
         phone:z.string()
         .min(11,"Formato de numero invalido"),
-        date:z.coerce.date()
+        date:z.string().min(1,"A data é obrigatória")
       })
   
    
@@ -36,7 +36,7 @@ export default function SecondForm({data,handleChange,simulateEvent,backStep}:an
             {...register("name")}
             onChange={handleChange}
             value={data.name}
-            tabIndex={5}
+            tabIndex={7}
             aria-label='Input Qual seu nome?'
             />
             <label htmlFor="email">Email</label>
@@ -47,7 +47,7 @@ export default function SecondForm({data,handleChange,simulateEvent,backStep}:an
             {...register("email")}
             onChange={handleChange}
             value={data.email}
-            tabIndex={6}
+            tabIndex={8}
             aria-label='Input Seu email'
             />
             <label htmlFor="phone">Telefone</label>
@@ -58,23 +58,24 @@ export default function SecondForm({data,handleChange,simulateEvent,backStep}:an
             {...register("phone")}
             onChange={handleChange}
             value={data.phone}
-            tabIndex={7}
+            tabIndex={9}
             aria-label='Input Seu telefone'
             />
             <label htmlFor="date">Data de nascimento</label>
             {errors.date && <span>{errors.date.message}</span>}
             <input 
-            type="date" 
+            type="text" 
             id="date" 
             {...register('date')}
             onChange={handleChange}
             value={data.date}
-            tabIndex={8}
+            tabIndex={10}
             aria-label='Input Sua data de nascimento?'
+            placeholder='DD/MM/YYYY'
             />
             <div>
-                <button onClick={backStep} tabIndex={9} aria-label='Botão que volta para o formulário passado'>Voltar</button>
-                <button onClick={simulateEvent} tabIndex={10} aria-label='Botão que abre um modal para confirmação de seus dados e envio do formulário'>Finalizar</button>
+                <button onClick={backStep} tabIndex={11} aria-label='Botão que volta para o formulário passado'>Voltar</button>
+                <button onClick={simulateEvent} tabIndex={12} aria-label='Botão que abre um modal para confirmação de seus dados e envio do formulário'>Finalizar</button>
             </div>
         </form>
        </>
