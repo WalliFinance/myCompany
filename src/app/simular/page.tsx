@@ -123,8 +123,8 @@ export default function Simulacao(){
     }
 
     const steps = [
-        <FirstForm handleChange={handleChange} data={formData} key={'null'} buttonEvent={nextStep}/>,
-        <SecondForm handleChange={handleChange} data={formData} key={'null'} simulateEvent={nextStep} backStep={prevStep}/>
+        <FirstForm handleChange={handleChange} data={formData} key={null} buttonEvent={nextStep}/>,
+        <SecondForm handleChange={handleChange} data={formData} key={null} simulateEvent={nextStep} backStep={prevStep}/>
     ]
 
     useEffect(()=>{
