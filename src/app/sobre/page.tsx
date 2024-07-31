@@ -1,16 +1,53 @@
 'use client'
 import Image from 'next/image'
 import styles from './styles/sobre.module.scss'
-import companyImage from '@/public/images/company.jpg'
+import companyImage from '@/public/images/toa-heftiba-FV3GConVSss-unsplash.jpg'
+import companyImage2 from '@/public/images/angela-bailey-GfUk_pFtjz0-unsplash.jpg'
+import companyImage3 from '@/public/images/lycs-architecture-U2BI3GMnSSE-unsplash (1).jpg'
+import companyImage4 from '@/public/images/jason-goodman-Oalh2MojUuk-unsplash (1).jpg'
 import joaoImage from '@/public/images/joao.svg'
 import mariaImage from '@/public/images/maria.svg'
 import pedroImage from '@/public/images/pedro.svg'
 import { useEffect } from 'react'
 import useWindowSize from '@/src/utils/useWindowSize'
 import Lenis from 'lenis'
+import {useKeenSlider} from 'keen-slider/react'
+import "keen-slider/keen-slider.min.css"
+
 
 export default function Sobre(){
     const size = useWindowSize()
+    const [sliderRef] = useKeenSlider<HTMLDivElement>({
+        loop: true,
+    },
+    [
+        (slider) =>{
+            let timeOut: ReturnType<typeof setTimeout>
+
+            function clearNextTimeOut(){
+                clearTimeout(timeOut)
+            }
+
+            function nextTimeOut(){
+                clearTimeout(timeOut)
+                return timeOut = setTimeout(() => {
+                    slider.next()
+                }, 2000);
+            }
+
+            slider.on("created", ()=>{
+                slider.container.addEventListener("mouseout", ()=>{
+                    clearNextTimeOut()
+                    nextTimeOut()
+                })
+            })
+
+            slider.on("dragStarted", clearNextTimeOut)
+            slider.on("animationEnded", nextTimeOut)
+            slider.on("updated",nextTimeOut)
+        },
+    ]
+)
     useEffect(()=>{
         document.title = 'Sobre-nos'
 
@@ -39,12 +76,44 @@ export default function Sobre(){
                     src={companyImage}                
                     />
                 ):(
+                   <div ref={sliderRef} className='keen-slider'>
+                    <div className="keen-slider__slide number-slide1"> 
                     <Image
                     width={800}
                     height={600}
                     alt='Foto da nossa empresa'
-                    src={companyImage}                
-                    />
+                    src={companyImage} 
+                    objectFit='cover'               
+                    /></div>
+                    <div className="keen-slider__slide number-slide2">
+                        <Image
+                        width={800}
+                        height={600}
+                        alt='Foto da nossa empresa'
+                        src={companyImage2} 
+                        objectFit='cover'               
+
+                        />
+                    </div>
+                    <div className="keen-slider__slide number-slide3">
+                        <Image
+                        width={800}
+                        height={600}
+                        alt='Foto da nossa empresa'
+                        src={companyImage3} 
+                        objectFit='cover'               
+                        />
+                    </div>
+                    <div className="keen-slider__slide number-slide4">
+                    <Image
+                        width={800}
+                        height={600}
+                        alt='Foto da nossa empresa'
+                        src={companyImage4} 
+                        objectFit='cover'               
+                        />
+                    </div>
+                   </div>
                 )}
             </article>
 
