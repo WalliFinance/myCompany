@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import styles from './styles/simular.module.scss'
 import emailjs from '@emailjs/browser'
 import * as gtag from "@/lib/gtag"
+import useWindowSize from "@/src/utils/useWindowSize";
 
 
 export default function Simulacao(){
@@ -18,6 +19,7 @@ export default function Simulacao(){
     const [phone,setPhone] = useState('')
     const [birtday,setBirthday] = useState('')
     const refSummary = useRef<HTMLElement>(null)
+    const size = useWindowSize()
 
     const initialFormData={
         name: '',
@@ -122,10 +124,23 @@ export default function Simulacao(){
     if(refSummary.current)refSummary.current.style.display='none'
     }
 
-    const steps = [
+    let steps;
+
+
+
+    {size.width<1000?(
+      steps = [
+        <FirstForm handleChange={handleChange} data={formData} key={null} buttonEvent={nextStep}/>,
+        <SecondForm handleChange={handleChange} data={formData} key={null} simulateEvent={confirmSendEmail} backStep={prevStep}/>
+      ]
+    ):(
+      steps = [
         <FirstForm handleChange={handleChange} data={formData} key={null} buttonEvent={nextStep}/>,
         <SecondForm handleChange={handleChange} data={formData} key={null} simulateEvent={nextStep} backStep={prevStep}/>
     ]
+    )}
+
+   
 
     useEffect(()=>{
         document.title = 'Simulação'
