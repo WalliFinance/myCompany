@@ -69,32 +69,38 @@ export default function Simulacao(){
     
       
       const confirmSendEmail = () =>{
-        alert('Um consultor ja foi notificado aguarde o contato!')
+        if(formData.type!=='' && formData.value!=='' && formData.name!=='' && formData.phone!=='' && formData.email.match(/@.*\./) && formData.date!==''){
+          alert('Um consultor ja foi notificado aguarde o contato!')
 
-        emailjs.send(
-            serviceId,
-            templateId,
-            templateParams,
-           {
-             publicKey: publicKey,
-           }
-        )
-
-        gtag.event({
-          action:'form_submit',
-          category: 'Form Submit',
-          label: 'Simulation form',
-          value:2,
-          page_location: window.location.href
-        })
-       
-            setTimeout(() => {
-                if(refSummary.current){
-                    refSummary.current.style.display = 'none'
-
-                }
-            window.location.href = '/'
-            }, 1000);
+          emailjs.send(
+              serviceId,
+              templateId,
+              templateParams,
+             {
+               publicKey: publicKey,
+             }
+          )
+  
+          gtag.event({
+            action:'form_submit',
+            category: 'Form Submit',
+            label: 'Simulation form',
+            value:2,
+            page_location: window.location.href
+          })
+         
+              setTimeout(() => {
+                  if(refSummary.current){
+                      refSummary.current.style.display = 'none'
+  
+                  }
+              window.location.href = '/'
+              }, 1000);
+        }
+        else{
+          alert('Preencha todos os campos')
+        }
+      
         }
       
 
