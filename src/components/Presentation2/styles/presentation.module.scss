@@ -1,0 +1,125 @@
+$p1:#003049;
+$p2:#005480;
+$p3:#0081C3;
+$p4:#00A3F6;
+$p5:#2FB9FF;
+$p6:#7DD3FF;
+$s1:#212529;
+$s2:#343A40;
+$s3:#495057;
+$s4:#6C757D;
+$s5:#ADB5BD;
+$s6:#CED4DA;
+$s7:#1C2024;
+$s8:#0E1114;
+$s9:#0B1015;
+$s10:#060A0D;
+$s11:#040709;
+$s12:#000000;
+$warning:#D90429;
+$sucess:#A7C957;
+$white:#FFFFFF;
+
+
+@font-face {
+  font-family:'Button';
+  src: url('../../../../public/fonts/Roboto-Medium.ttf');
+}
+
+@font-face {
+  font-family:'Button-Hover';
+  src: url('../../../../public/fonts/Roboto-Bold.ttf');
+}
+
+@font-face {
+  font-family:'Title' ;
+  src: url('../../../../public/fonts/Merriweather-Bold.ttf');
+}
+
+@font-face {
+  font-family: 'Text-L';
+  src: url('../../../../public/fonts/QueensidesLight-ZVj3l.ttf');
+}
+
+@font-face {
+  font-family: 'Text-M';
+  src: url('../../../../public/fonts/QueensidesMedium-x30zV.ttf');
+}
+
+.main{
+    height: 100vh;
+    position: sticky;
+    top: 0rem;
+    padding: 0rem 3.75rem;
+    display: grid;
+    place-items: center;
+    background: url('../../../../public/images/brian-babb-XbwHrt87mQ0-unsplash.jpg');
+    background-position: center;
+    background-size: cover;
+   
+    article{
+    padding: 12.5rem 0rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: $s12;
+
+    h1{
+          font-size: 3rem;
+          font-family: 'Title';
+      }
+
+      h2{
+          font-family: 'Title';
+          margin-bottom: .75rem;
+      }
+
+      p{
+          font-family: 'Text-M';
+          font-size: 1.2rem;
+          max-width: 43.75rem;
+          text-align: justify;
+          margin: auto;
+      }
+
+      button{
+        background-color: $p1;
+        border: .125rem solid $p6;
+        color: $s6;
+        padding: .5rem 2rem;
+        text-transform: uppercase;
+        font-family: 'Button';
+        transition: .4s;
+        border-radius: .5rem;
+        cursor: pointer;
+        margin-top: 2.5rem;
+        
+        a{
+          color: inherit;
+        }
+        &:hover{
+            border-color: $p1;
+            background-color: $p6;
+            color: $s12;
+        }
+      }
+   }
+}
+
+@media(max-width:640px){
+  .main{
+    height: max-content;
+    background: unset;
+    background-color: $s7;
+    position: unset;
+   
+    
+    article{
+      color: $white;
+      h1{
+        font-size:2rem;
+      }
+    }
+  }
+}
